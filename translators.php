@@ -20,14 +20,14 @@ include "connect.php";
                     echo '
                   <div class="col-sm-6 col-lg-4">
                         <div class="card text-center clean-card">
-                        <img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar1.jpg">
+                        <img class="card-img-top w-100 d-block" src="assets/img/avatars/' . $row["avatar_url"] . '">
                         <div class="card-body info">
                             <h4 class="card-title">' .
                         $row["first_name"] .
                         " " .
                         $row["last_name"] .
                         '</h4>
-                            <p class="card-text">Can translate ' . 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <p class="card-text">Can translate ' . languages_spoken($row["id"]) . '</p>
                             <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
                             </div>
                     </div>
@@ -39,24 +39,6 @@ include "connect.php";
                 // }
                 // $conn->close();
                 echo '
-                <div class="col-sm-6 col-lg-4">
-                    <div class="card text-center clean-card"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar2.jpg">
-                        <div class="card-body info">
-                            <h4 class="card-title">Robert Downturn</h4>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="card text-center clean-card"><img class="card-img-top w-100 d-block" src="assets/img/avatars/avatar3.jpg">
-                        <div class="card-body info">
-                            <h4 class="card-title">Ally Sanders</h4>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

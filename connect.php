@@ -1,4 +1,5 @@
-<?php $dbhost = 'localhost';
+<?php
+$dbhost = 'localhost';
 $dbuser = 'root';
 $dbpassword = 'root';
 $dbdatabase = 'lingobuddy';
@@ -28,11 +29,27 @@ $mysqli = new mysqli($dbhost, $dbuser, $dbpassword, $dbdatabase);
 // }
 // $conn->close();
 
+function languages_spoken($translator)
+{
+    $mysqli = new mysqli('localhost', 'root', 'root', 'lingobuddy');
 
-// function languages_spoken($translator)
-// {
-//     $sql = "SELECT `translator`.`language`, `translator`.`language_2`, `translator`.`language_3` FROM `translator` WHERE `id`=120";
+    $sql = "SELECT name FROM language JOIN translator ON language.id = translator.language 
+        OR language.id = translator.language_2 OR language.id = translator.language_3 WHERE translator.id = " . $translator . ";";
 
+    $result = $mysqli->query($sql);
+    $languages = array();
+    $output = "";
 
-//     return $num * $num;
-// }
+    while ($row = $result->fetch_assoc()) {
+        $languages[] = $row["name"];
+    }
+
+    for ($i = 0; $i < count($languages); $i++) {
+        if ($i == count($languages) - 1) {
+            $output .= $languages[$i] . ".";
+        } else {
+            $output .= $languages[$i] . ", ";
+        }
+    }
+    return $output;
+}

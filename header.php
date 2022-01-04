@@ -25,7 +25,7 @@
                            <li class="nav-item"><a class="nav-link" href="features.php">Features</a></li>
                            <li class="nav-item"><a class="nav-link" href="pricing.php">Pricing</a></li>
                            <li class="nav-item"><a class="nav-link" href="translators.php">Translators</a></li>
-                           <li class="nav-item"><a class="nav-link" href="contact-us.php">Contact Us</a></li>
+                           <li class="nav-item"><a class="nav-link" href="contact-us.php">Sign In</a></li>
                        </ul>
                    </div>
                </div>

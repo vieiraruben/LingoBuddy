@@ -7,7 +7,7 @@ include "header.php";
         <div class="container">
             <div class="block-heading">
                 <h2 class="text-info">Pricing Table</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                <p>Check how much your translation will cost by entering your document's word count.</p>
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-5 col-lg-4">
