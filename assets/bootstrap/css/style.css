@@ -26,3 +26,7 @@ header {
 .btn-group-lg > .btn {
   border-radius: 1rem;
 }
+
+.clean-card {
+  margin-top: 30px;
+}
