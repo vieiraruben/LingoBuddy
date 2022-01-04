@@ -1,0 +1,28 @@
+:root {
+  --bs-font-sans-serif: "Rubik", sans-serif;
+  --bs-body-font-family: var(--bs-font-sans-serif);
+}
+
+header {
+  margin-bottom: 50px;
+}
+
+.clean-block.clean-hero .text {
+  color: black;
+  text-shadow: 0;
+}
+.img-logo {
+  margin-right: 1rem;
+}
+
+.text-info {
+  color: rgb(0, 41, 166);
+}
+.btn {
+  background-color: #6fbced;
+}
+
+.btn-lg,
+.btn-group-lg > .btn {
+  border-radius: 1rem;
+}
