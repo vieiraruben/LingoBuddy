@@ -24,7 +24,7 @@
                            <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
                            <li class="nav-item"><a class="nav-link" href="pricing.php">Pricing</a></li>
                            <li class="nav-item"><a class="nav-link" href="translators.php">Translators</a></li>
-                           <li class="nav-item"><a class="nav-link" href="contact-us.php">Account</a></li>
+                           <li class="nav-item"><a class="nav-link" href="account.php">Account</a></li>
                        </ul>
                    </div>
                </div>
