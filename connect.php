@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION["user"] = 101;
+$_SESSION["user"] = 101; //example de utilisateur
 
 $dbhost = 'localhost';
 $dbuser = 'root';
@@ -138,4 +138,27 @@ function price_calc($word): int
         return 25;
     }
     return 1000 * 0.18;
+}
+
+function log_in($email, $password)
+{
+
+    // $_POST["email"];
+
+
+    $mysqli = new mysqli('localhost', 'root', 'root', 'lingobuddy');
+
+    $sql = 'SELECT id FROM `user` WHERE email = "' . $email . '" AND password = "' . $password . '";';
+
+    $result = $mysqli->query($sql);
+    $row = $result->fetch_assoc();
+    $mysqli->close();
+
+    if ($row[0]["id"] != null) {
+        header("Location:login.php");
+        exit;
+    } else {
+        $_SESSION["user"] = $row[0]["id"];
+        header("Location:account-view.php");
+    }
 }
