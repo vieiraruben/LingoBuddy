@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jan 04, 2022 at 06:32 PM
+-- Generation Time: Jan 05, 2022 at 01:26 PM
 -- Server version: 5.7.34
 -- PHP Version: 8.0.8
 
@@ -81,8 +81,41 @@ CREATE TABLE `user` (
   `first_name` varchar(20) NOT NULL,
   `last_name` varchar(20) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `password` varchar(20) NOT NULL,
+  `country` varchar(20) NOT NULL,
+  `phone_number` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `password`, `country`, `phone_number`) VALUES
+(101, 'Peter', 'Brown', 'brown@mail.com', 'qwerty1', 'France', 756519395);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_order`
+--
+
+CREATE TABLE `user_order` (
+  `id` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `word_count` int(11) NOT NULL,
+  `file_url` varchar(250) NOT NULL,
+  `created_on` datetime NOT NULL,
+  `price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user_order`
+--
+
+INSERT INTO `user_order` (`id`, `user`, `word_count`, `file_url`, `created_on`, `price`) VALUES
+(1, 101, 500, 'hello.txt', '2022-01-05 09:31:34', 47),
+(2, 101, 350, 'file.doc', '2022-01-05 10:04:28', 35),
+(3, 101, 1000, 'essay.doc', '2022-01-05 10:05:43', 65);
 
 --
 -- Indexes for dumped tables
@@ -111,6 +144,12 @@ ALTER TABLE `user`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `user_order`
+--
+ALTER TABLE `user_order`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -130,7 +169,13 @@ ALTER TABLE `translator`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+
+--
+-- AUTO_INCREMENT for table `user_order`
+--
+ALTER TABLE `user_order`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
