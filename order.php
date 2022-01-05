@@ -13,7 +13,7 @@ include "header.php";
                 <label for = "yes">yes</label>
                 <input type = "checkbox" id="yes" name = "yes" value="yes-checked"> </input>
                 <label for = "yes">no</label>
-                <input type = "checkbox" id="no" name = "yes" value="no-checked"> </input>
+                <input type = "checkbox" id="no" name = "no" value="no-checked"> </input>
 
                 <label>Which is the start language</label>
                     <select name="start-language" id="start-language">         
