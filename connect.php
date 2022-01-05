@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $dbhost = 'localhost';
 $dbuser = 'root';
 $dbpassword = 'root';
@@ -29,6 +31,12 @@ $mysqli = new mysqli($dbhost, $dbuser, $dbpassword, $dbdatabase);
 // }
 // $conn->close();
 
+function log_out()
+{
+    session_unset();
+    session_destroy();
+}
+
 function languages_spoken($translator)
 {
     $mysqli = new mysqli('localhost', 'root', 'root', 'lingobuddy');
@@ -40,6 +48,7 @@ function languages_spoken($translator)
     $languages = array();
     $output = "";
 
+    $mysqli->close();
     while ($row = $result->fetch_assoc()) {
         $languages[] = $row["name"];
     }

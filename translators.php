@@ -1,7 +1,6 @@
 <?php
 $pageTitle = "Translators | LingoBuddy";
 include "header.php";
-include "connect.php";
 ?>
 <main class="page">
     <section class="clean-block about-us">

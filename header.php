@@ -1,19 +1,19 @@
-   <!DOCTYPE html>
-   <html>
+<?php include "connect.php"; ?>
 
-   <head>
-       <meta charset="utf-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-       <title><?= $pageTitle ?></title>
-       <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
-       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap">
-       <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
-       <link rel="stylesheet" href="assets/bootstrap/css/vanilla-zoom.min.css">
-       <link rel="stylesheet" href="assets/bootstrap/css/style.css">
+<!DOCTYPE html>
+<html>
 
-   </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title><?= $pageTitle ?></title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/vanilla-zoom.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/style.css">
 
    <body>
        <header>
