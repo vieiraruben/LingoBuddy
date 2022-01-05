@@ -43,3 +43,8 @@ header {
   flex-basis: 30%;
   margin-right: 100px;
 }
+
+.editacc {
+  text-align: right;
+  padding-right: 15px;
+}
