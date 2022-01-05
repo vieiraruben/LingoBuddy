@@ -30,3 +30,16 @@ header {
 .clean-card {
   margin-top: 30px;
 }
+
+.account-container {
+  display: flex;
+}
+
+.table-striped {
+  flex-basis: 50%;
+}
+
+.card.mb-4.contact-details {
+  flex-basis: 30%;
+  margin-right: 100px;
+}
