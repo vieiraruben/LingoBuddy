@@ -1,4 +1,5 @@
 <?php
+$pageTitle = "order";
 include "header.php";
 ?>
 <main class="page contact-us-page">
@@ -8,7 +9,7 @@ include "header.php";
                 <h2 class="text-info">Your order</h2>
                 <p>Select if you need a translator or/and a document translation</p>
             </div>
-            <form>                
+            <form action="orderConfirmation.php" methode="get">                
                 <label>Do you need a translator : </label>
                 <label for = "yes">yes</label>
                 <input type = "checkbox" id="yes" name = "yes" value="yes-checked"> </input>
@@ -16,24 +17,26 @@ include "header.php";
                 <input type = "checkbox" id="no" name = "no" value="no-checked"> </input>
 
                 <label>Which is the start language</label>
-                    <select name="start-language" id="start-language">         
-                        <option value="en"> English</option>
-                        <option value="pt">Portuguese</option>
-                        <option value="es">Espagnol</option>
-                        <option value="de">German</option>
-                        <option value="fr">French</option>
-                        <option value="it">Italian</option>                   
+                    <select name="startLanguage" id="start-language">         
+                        <option value="english"> English</option>
+                        <option value="portuguese">Portuguese</option>
+                        <option value="espagnol">Espagnol</option>
+                        <option value="German">German</option>
+                        <option value="french">French</option>
+                        <option value="italian">Italian</option>                   
                     </select>  
 
                 <label>Which is the destination language</label>
-                   <select name="destination-language" id="destination-language">         
-                        <option value="en"> English</option>
-                        <option value="pt">Portuguese</option>
-                        <option value="es">Espagnol</option>
-                        <option value="de">German</option>
-                        <option value="fr">French</option>
-                        <option value="it">Italian</option>                   
-                    </select> 
+                   <select name="destinationLanguage" id="destination-language">         
+                        <option value="english"> English</option>
+                        <option value="portuguese">Portuguese</option>
+                        <option value="espagnol">Espagnol</option>
+                        <option value="German">German</option>
+                        <option value="french">French</option>
+                        <option value="italian">Italian</option>                   
+                    </select>
+                    
+                    <input type="submit" value="valider">
 
               <!--  <div class="mb-3"><label class="form-label" for="name">Name</label><input class="form-control" type="text" id="name" name="name"></div>
                 <div class="mb-3"><label class="form-label" for="subject">Subject</label><input class="form-control" type="text" id="subject" name="subject"></div>
