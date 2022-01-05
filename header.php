@@ -22,10 +22,9 @@
                    <div class="collapse navbar-collapse" id="navcol-1">
                        <ul class="navbar-nav ms-auto">
                            <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
-                           <li class="nav-item"><a class="nav-link" href="features.php">Features</a></li>
                            <li class="nav-item"><a class="nav-link" href="pricing.php">Pricing</a></li>
                            <li class="nav-item"><a class="nav-link" href="translators.php">Translators</a></li>
-                           <li class="nav-item"><a class="nav-link" href="contact-us.php">Sign In</a></li>
+                           <li class="nav-item"><a class="nav-link" href="contact-us.php">Account</a></li>
                        </ul>
                    </div>
                </div>
