@@ -1,7 +1,9 @@
 <?php
 $pageTitle = "My Account | LingoBuddy";
 include "header.php";
-$user = $_SESSION["user"]
+$user = $_SESSION["user"];
+$user_data = check_login($dbConnection);
+
 ?>
 <main class="page contact-us-page">
 
