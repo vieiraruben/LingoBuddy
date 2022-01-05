@@ -9,10 +9,9 @@ $dbdatabase = 'lingobuddy';
 
 $mysqli = new mysqli($dbhost, $dbuser, $dbpassword, $dbdatabase);
 
-function connection()
-{
-    return new mysqli('localhost', 'root', 'root', 'lingbuddy');
-}
+// if(!$dbConnection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){
+//     die("Failed to connect!");
+// }
 
 // Check connection
 // if ($mysqli === false) {
