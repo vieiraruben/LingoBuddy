@@ -182,6 +182,6 @@ function error_page()
 {
     echo
     '<img class="error-img" src="assets/img/error.png">
-    <p style="color:red;"> Please log in to view this page</p>' . var_dump($_SESSION) . '
+    <p style="color:red;"> Please log in to view this page</p>
     </div></div></section></main>';
 }

@@ -11,15 +11,23 @@ if (isset($_GET['login'])) {
         $_SESSION["user"] = $row["id"];
         $user = $_SESSION["user"];
         unset($_GET['login']);
-        echo var_dump($_SESSION);
     } else {
         header("Location:login.php");
         exit;
     }
 }
 include "header.php";
-
 ?>
+<script>
+    function toggledelete() {
+        var toggle = document.getElementById("confirm-delete");
+        if (toggle.style.display == "none") {
+            toggle.style.display = "block";
+        } else {
+            toggle.style.display = "none";
+        }
+    }
+</script>
 <main class="page contact-us-page">
     <section class="clean-block clean-form dark">
         <div class="container">
@@ -31,9 +39,6 @@ include "header.php";
                 } ?>
                 <h2 class="text-info">My Account</h2>
                 <p><?php
-
-
-
                     if (isset($_POST['submit'])) {
                         $email = $_POST['email'];
                         $first_name = $_POST['first_name'];
@@ -41,17 +46,16 @@ include "header.php";
                         $country = $_POST['country'];
                         $password = $_POST['password'];
                         $phone_number = $_POST['phone_number'];
-
-                        $sql = 'UPDATE user SET email ="' . $_POST['email'] . '" WHERE id = 101';
-
-                        // $sql = "UPDATE user SET email=:email, location=:location WHERE id =:101";
+                        $sql = 'UPDATE user SET email ="' . $_POST['email'] . '", first_name ="' .
+                            $_POST['first_name'] . '", last_name ="' . $_POST['last_name'] . '", country ="' .
+                            $_POST['country'] . '", phone_number ="' . $_POST['phone_number'] . '", password ="' .
+                            $_POST['password'] . '" WHERE id = "' . $_SESSION["user"] . '";';
                         $servername = "localhost";
                         $dbname = "lingobuddy";
                         $conn = new PDO("mysql:host=$servername;dbname=$dbname", 'root', 'root');
                         $statement = $conn->prepare($sql);
-
                         if ($statement->execute($data)) {
-                            echo '<p style="color:green; font-weight: bold;"> Account updated successfully!</p>';
+                            echo '<p style="color:green; font-weight: bold;">Account updated successfully!</p>';
                         }
                         unset($_POST['submit']);
                     }; ?></p>
@@ -97,24 +101,29 @@ include "header.php";
                         </div>
 
                     </div>
-                    <p class="editacc"><a href="/editaccount.php">Edit account</a></p>
+                    <p class="editacc link-primary"><a href=" /editaccount.php">Edit account</a></p>
+                    <a class="link-primary" href="#" id="deleteacc" onclick="toggledelete()"> Delete account</a>
+                    <form id="delete-form" method="POST" action="login.php">
+                        <p id="confirm-delete" style="display: none;">Are you sure? <button type="submit" style="margin-left:20px;" name=" delete" class="btn btn-danger" ">Delete</button></p>
+
+
                 </div>
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Word Count</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Created On</th>
-                            <th scope="col">File</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php find_order($user) ?>
-                    </tbody>
-                </table>
+                <table class=" table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Word Count</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Created On</th>
+                                        <th scope="col">File</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php find_order($user) ?>
+                                </tbody>
+                                </table>
+                </div>
             </div>
-        </div>
     </section>
 </main>
 <?php include "footer.php"; ?>
