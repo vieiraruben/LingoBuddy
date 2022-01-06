@@ -193,3 +193,8 @@ function how_long_ago($date)
         }
     }
 }
+try {
+    $db_upload = new PDO('mysql:host=localhost;dbname=upload', 'root', 'root');
+} catch (PDOException $e) {
+    die('Error: ' . $e->getMessage());
+}
