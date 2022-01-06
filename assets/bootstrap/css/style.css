@@ -17,6 +17,7 @@ header {
 
 .text-info {
   color: rgb(0, 41, 166);
+  padding-top: 20px;
 }
 .btn {
   background-color: #6fbced;
@@ -42,4 +43,13 @@ header {
 .card.mb-4.contact-details {
   flex-basis: 30%;
   margin-right: 100px;
+}
+
+.editacc {
+  text-align: right;
+  padding-right: 15px;
+}
+
+.error-img {
+  height: 400px;
 }

@@ -1,16 +1,60 @@
 <?php
 $pageTitle = "My Account | LingoBuddy";
+if (isset($_GET['login'])) {
+    session_start();
+    $mysqli = new mysqli('localhost', 'root', 'root', 'lingobuddy');
+    $sql = 'SELECT `id`, `email`, `password` FROM `user` WHERE email = "' . $_GET['email'] . '" AND password = "' . $_GET['password'] . '";';
+    $result = $mysqli->query($sql);
+    $row = $result->fetch_assoc();
+    $mysqli->close();
+    if ($row["email"] == $_GET['email'] && $row["password"] == $_GET['password']) {
+        $_SESSION["user"] = $row["id"];
+        $user = $_SESSION["user"];
+        unset($_GET['login']);
+        echo var_dump($_SESSION);
+    } else {
+        header("Location:login.php");
+        exit;
+    }
+}
 include "header.php";
-$user = $_SESSION["user"];
-$user_data = check_login($dbConnection);
 
 ?>
 <main class="page contact-us-page">
-
     <section class="clean-block clean-form dark">
         <div class="container">
             <div class="block-heading">
+                <?php if (!logged_in()) {
+                    error_page();
+                    include "footer.php";
+                    exit();
+                } ?>
                 <h2 class="text-info">My Account</h2>
+                <p><?php
+
+
+
+                    if (isset($_POST['submit'])) {
+                        $email = $_POST['email'];
+                        $first_name = $_POST['first_name'];
+                        $last_name = $_POST['last_name'];
+                        $country = $_POST['country'];
+                        $password = $_POST['password'];
+                        $phone_number = $_POST['phone_number'];
+
+                        $sql = 'UPDATE user SET email ="' . $_POST['email'] . '" WHERE id = 101';
+
+                        // $sql = "UPDATE user SET email=:email, location=:location WHERE id =:101";
+                        $servername = "localhost";
+                        $dbname = "lingobuddy";
+                        $conn = new PDO("mysql:host=$servername;dbname=$dbname", 'root', 'root');
+                        $statement = $conn->prepare($sql);
+
+                        if ($statement->execute($data)) {
+                            echo '<p style="color:green; font-weight: bold;"> Account updated successfully!</p>';
+                        }
+                        unset($_POST['submit']);
+                    }; ?></p>
                 <p>View your account details and recent orders.</p>
             </div>
             <div class="account-container">
@@ -21,7 +65,7 @@ $user_data = check_login($dbConnection);
                                 <p class="mb-0">Name</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0"><?php echo user_name($user) ?></p>
+                                <p class="text-muted mb-0"><?php echo user_first_name($user) . " " . user_last_name($user) ?></p>
                             </div>
                         </div>
                         <hr>
@@ -51,7 +95,9 @@ $user_data = check_login($dbConnection);
                                 <p class="text-muted mb-0"><?php echo user_country($user) ?></p>
                             </div>
                         </div>
+
                     </div>
+                    <p class="editacc"><a href="/editaccount.php">Edit account</a></p>
                 </div>
                 <table class="table table-striped table-hover">
                     <thead>
