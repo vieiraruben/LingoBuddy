@@ -108,22 +108,24 @@ include "header.php";
 
 
                 </div>
-                <table class=" table table-striped table-hover">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Word Count</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Created On</th>
-                                        <th scope="col">File</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php find_order($user) ?>
-                                </tbody>
+                <div class=" table-body">
+                                <table class=" table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Word Count</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Created On</th>
+                                            <th scope="col">File</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php find_order($user) ?>
+                                    </tbody>
                                 </table>
                 </div>
             </div>
+        </div>
     </section>
 </main>
 <?php include "footer.php"; ?>

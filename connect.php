@@ -10,32 +10,6 @@ $dbdatabase = 'lingobuddy';
 
 $mysqli = new mysqli($dbhost, $dbuser, $dbpassword, $dbdatabase);
 
-// if(!$dbConnection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){
-//     die("Failed to connect!");
-// }
-
-// Check connection
-// if ($mysqli === false) {
-// die("ERROR: Could not connect. " . $mysqli->connect_error);
-// }
-
-// Print host information
-// echo "Connect Successfully. Host info: " . $mysqli->host_info;
-
-
-// $sql = "SELECT * FROM `users`;";
-// $result = $mysqli->query($sql);
-
-// if ($result->num_rows > 0) {
-//     // output data of each row
-//     while ($row = $result->fetch_assoc()) {
-//         echo $row;
-//         echo "id: " . $row["id"] . " - Name: " . $row["firstName"] . " " . $row["lastName"] . "<br>";
-//     }
-// } else {
-//     echo "0 results";
-// }
-// $conn->close();
 function find_order($user)
 {
     $mysqli = new mysqli('localhost', 'root', 'root', 'lingobuddy');
@@ -50,10 +24,11 @@ function find_order($user)
                         <td>' . $row["price"] . '</td>
                         <td>' . $row["created_on"] . '</td>
                         <td>' . $row["file_url"] . '</td>
+                        <td>' . how_long_ago($row["created_on"]) . '</td>
                         <td>Edit</td>
                     </tr>';
         }
-    } else echo '<tr><td>No orders found</td></tr>';
+    } else echo '<tr><td style="border: none; box-shadow: none;">No orders found</td></tr>';
 }
 
 function log_out()
@@ -194,4 +169,27 @@ function order_created($order)
     $row = $result->fetch_assoc();
     $mysqli->close();
     return $row["created_on"];
+}
+
+function how_long_ago($date)
+{
+    $timestamp = strtotime($date);
+
+    $strTime = array("second", "minute", "hour", "day", "month", "year");
+    $length = array("60", "60", "24", "30", "12", "10");
+
+    $currentTime = time();
+    if ($currentTime >= $timestamp) {
+        $diff     = time() - $timestamp;
+        for ($i = 0; $diff >= $length[$i] && $i < count($length) - 1; $i++) {
+            $diff = $diff / $length[$i];
+        }
+
+        $diff = round($diff);
+        if ($diff == 1) {
+            return $diff . " " . $strTime[$i] . " ago ";
+        } else {
+            return $diff . " " . $strTime[$i] . "s ago ";
+        }
+    }
 }
