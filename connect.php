@@ -185,3 +185,13 @@ function error_page()
     <p style="color:red;"> Please log in to view this page</p>
     </div></div></section></main>';
 }
+
+function order_created($order)
+{
+    $mysqli = new mysqli('localhost', 'root', 'root', 'lingobuddy');
+    $sql = "SELECT `created_on` FROM `user_order` WHERE `id`=" . $order . ";";
+    $result = $mysqli->query($sql);
+    $row = $result->fetch_assoc();
+    $mysqli->close();
+    return $row["created_on"];
+}
