@@ -104,7 +104,7 @@ include "header.php";
                     <p class="editacc link-primary"><a href=" /editaccount.php">Edit account</a></p>
                     <a class="link-primary" href="#" id="deleteacc" onclick="toggledelete()"> Delete account</a>
                     <form id="delete-form" method="POST" action="login.php">
-                        <p id="confirm-delete" style="display: none;">Are you sure? <button type="submit" style="margin-left:20px;" name=" delete" class="btn btn-danger" ">Delete</button></p>
+                        <p id="confirm-delete" style="display: none;">Are you sure? <button type="submit" style="margin-left:20px;" name="delete" class="btn btn-danger" ">Delete</button></p>
 
 
                 </div>
