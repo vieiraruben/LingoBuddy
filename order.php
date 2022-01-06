@@ -13,7 +13,7 @@ $_SESSION['array'] = NULL;
                 <h2 class="text-info">Your order</h2>
                 <p>Select if you need a translator or/and a document translation</p>
             </div>
-            <form action="orderConfirmation.php" methode="get">                
+            <form action="order-confirmation.php" methode="get">                
                 <label>Do you need a translator : </label>
                 <label for = "yes">yes</label>
                 <input type = "checkbox" id="yes" name = "yes" value="yes-checked"> </input>
@@ -21,7 +21,7 @@ $_SESSION['array'] = NULL;
                 <input type = "checkbox" id="no" name = "no" value="no-checked"> </input>
 
                 <label>Which is the start language</label>
-                    <select name="startLanguage" id="start-language">
+                    <select name="start_language" id="start-language">
                         <option value="none"> Select a language</option>         
                         <option value="english"> English</option>
                         <option value="portuguese">Portuguese</option>
@@ -32,7 +32,7 @@ $_SESSION['array'] = NULL;
                     </select>  
 
                 <label>Which is the destination language</label>
-                   <select name="destinationLanguage" id="destination-language">  
+                   <select name="destination_language" id="destination-language">  
                         <option value="none"> Select a language</option>        
                         <option value="english"> English</option>
                         <option value="portuguese">Portuguese</option>
@@ -51,7 +51,7 @@ $_SESSION['array'] = NULL;
                 <div class="mb-3"><button class="btn btn-primary" type="submit">Send</button></div>
             -->
             </form>
-            <form action="orderConfirmation.php" method="post" enctype="multipart/form-data">
+            <form action="order-confirmation.php" method="post" enctype="multipart/form-data">
                 <label>Select a document to upload:</label> 
                 <input type="file" name="fileToUpload" id="fileToUpload">
                 <input type="submit" value="Upload document" name="submit">
