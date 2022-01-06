@@ -1,17 +1,38 @@
 <?php
 $pageTitle = "My Account | LingoBuddy";
+if (isset($_GET['login'])) {
+    session_start();
+    $mysqli = new mysqli('localhost', 'root', 'root', 'lingobuddy');
+    $sql = 'SELECT `id`, `email`, `password` FROM `user` WHERE email = "' . $_GET['email'] . '" AND password = "' . $_GET['password'] . '";';
+    $result = $mysqli->query($sql);
+    $row = $result->fetch_assoc();
+    $mysqli->close();
+    if ($row["email"] == $_GET['email'] && $row["password"] == $_GET['password']) {
+        $_SESSION["user"] = $row["id"];
+        $user = $_SESSION["user"];
+        unset($_GET['login']);
+        echo var_dump($_SESSION);
+    } else {
+        header("Location:login.php");
+        exit;
+    }
+}
 include "header.php";
-$user = $_SESSION["user"];
-$user_data = check_login($dbConnection);
 
 ?>
 <main class="page contact-us-page">
-
     <section class="clean-block clean-form dark">
         <div class="container">
             <div class="block-heading">
+                <?php if (!logged_in()) {
+                    error_page();
+                    include "footer.php";
+                    exit();
+                } ?>
                 <h2 class="text-info">My Account</h2>
                 <p><?php
+
+
 
                     if (isset($_POST['submit'])) {
                         $email = $_POST['email'];

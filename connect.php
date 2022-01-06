@@ -1,6 +1,7 @@
 <?php
 session_start();
-$_SESSION["user"] = 101; //example de utilisateur
+$user = $_SESSION["user"];
+//example de utilisateur
 
 $dbhost = 'localhost';
 $dbuser = 'root';
@@ -155,16 +156,32 @@ function log_in($email, $password)
     // $_POST["email"];
 
     $mysqli = new mysqli('localhost', 'root', 'root', 'lingobuddy');
-    $sql = 'SELECT id FROM `user` WHERE email = "' . $email . '" AND password = "' . $password . '";';
+    $sql = 'SELECT `id`, `email`, `password` FROM `user` WHERE email = "' . $email . '" AND password = "' . $password . '";';
     $result = $mysqli->query($sql);
     $row = $result->fetch_assoc();
     $mysqli->close();
-
-    if ($row[0]["id"] != null) {
+    return 'login function:' . var_dump($row[0]);
+    if ($row["email"] == $email && $row["password"] == $password) {
+        $_SESSION["user"] = $row["id"];
+        $user = $_SESSION["user"];
+        unset($_POST['login']);
+        header("Location:account-view.php");
+    } else {
         header("Location:login.php");
         exit;
-    } else {
-        $_SESSION["user"] = $row[0]["id"];
-        header("Location:account-view.php");
     }
+}
+
+function logged_in()
+{
+    if ($_SESSION["user"] == "" || !isset($_SESSION["user"])) return false;
+    else return true;
+}
+
+function error_page()
+{
+    echo
+    '<img class="error-img" src="assets/img/error.png">
+    <p style="color:red;"> Please log in to view this page</p>' . var_dump($_SESSION) . '
+    </div></div></section></main>';
 }
