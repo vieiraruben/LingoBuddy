@@ -56,6 +56,30 @@ $_SESSION['array'] = NULL;
                 <input type="file" name="fileToUpload" id="fileToUpload">
                 <input type="submit" value="Upload document" name="submit">
             </form>
+            <?php 
+            if(!empty($_FILES)){
+                $file_name = $_FILES['fileToUpload']['name'];
+                $file_extention = strrchr($file_name, ".");
+
+                $file_tmp_name = $_FILES['fileToUpload']['tmp_name'];
+                $file_destination = '../files/'.$file_name;
+
+                $authorised_extentions = array('.pdf', '.PDF');
+
+
+                if(in_array($file_extention, $authorised_extentions)){
+                    if(move_uploaded_file($file_tmp_name, $file_destination)){
+                        $req = $db_upload->prepare('INSERT INTO files (file_name, file_url) VALUES(?,?)');
+                        $req-> execute(array($file_name, $file_destination));  
+                        echo 'File has been successfully uploaded';
+                    } else {
+                        echo 'There was an error while sendind the file ';
+                    }
+                }else {
+                    echo 'Only PDF format are authorised !';
+                }
+            }
+            ?>
         </div>
     </section>
 </main>

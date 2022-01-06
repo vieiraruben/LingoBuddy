@@ -195,3 +195,9 @@ function order_created($order)
     $mysqli->close();
     return $row["created_on"];
 }
+
+try {
+    $db_upload = new PDO('mysql:host=localhost;dbname=upload','root','root');
+} catch (PDOException $e) {
+    die('Error: '.$e->getMessage());
+}

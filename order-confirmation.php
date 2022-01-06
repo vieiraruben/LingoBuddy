@@ -24,15 +24,15 @@ include "header.php";
 
 
 
-                    if ($check_yes) {
-                        if ($option_start !== "none" && $option_destination !== "none") {
-                            echo 'You choose a start language : ' . $_GET["start_language"] . PHP_EOL;
-                            echo 'You choose a destination language : ' . $_GET["destination_language"] . PHP_EOL;
+                    if ($check_yes && !$check_no) {
+                        if ($option_start != "none" && $option_destination != "none") {
+                            echo 'You choose a start language : ' . $_GET["start_language"];
+                            echo 'You choose a destination language : ' . $_GET["destination_language"];
                             $array = [$_GET["start_language"], $_GET["destination_language"]];
                             $_SESSION['array'] = $array;
                             var_dump($_SESSION['array']);
 
-                            $sql = 'INSERT INTO user_order (user, start_lang, target_lang, price, translator) VALUES ("' . $_SESSION['user'] . '", "' .
+                            $sql = 'INSERT INTO user_order (user, original_language, target_language, price, interpreter) VALUES ("' . $_SESSION['user'] . '", "' .
                             $_GET['user'] . '", "' . $_GET['start_lang'] . '", "' .
                             $_GET['target_lang'] . '", "' . $_GET['price'] . '", "' .
                             $_GET['translator'] . '");';
@@ -47,9 +47,14 @@ include "header.php";
                         } else {
                             header("location:order.php");
                         }
-                    } elseif ($checkNo) {
+                    } elseif (!$check_yes && $checkNo) {
                         echo "no translator asked";
-                    } else {
+
+                    } elseif ($check_no && $check_yes){
+                        header("location:order.php");
+                        echo "only one case can be checked";
+
+                    }else {
                         header("location:order.php");
                     }
                     ?>
