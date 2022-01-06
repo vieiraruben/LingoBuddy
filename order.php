@@ -1,6 +1,10 @@
 <?php
+
 $pageTitle = "order";
 include "header.php";
+session_start();
+$_SESSION['array'] = NULL;
+
 ?>
 <main class="page contact-us-page">
     <section class="clean-block clean-form dark">
@@ -17,7 +21,8 @@ include "header.php";
                 <input type = "checkbox" id="no" name = "no" value="no-checked"> </input>
 
                 <label>Which is the start language</label>
-                    <select name="startLanguage" id="start-language">         
+                    <select name="startLanguage" id="start-language">
+                        <option value="none"> Select a language</option>         
                         <option value="english"> English</option>
                         <option value="portuguese">Portuguese</option>
                         <option value="espagnol">Espagnol</option>
@@ -27,7 +32,8 @@ include "header.php";
                     </select>  
 
                 <label>Which is the destination language</label>
-                   <select name="destinationLanguage" id="destination-language">         
+                   <select name="destinationLanguage" id="destination-language">  
+                        <option value="none"> Select a language</option>        
                         <option value="english"> English</option>
                         <option value="portuguese">Portuguese</option>
                         <option value="espagnol">Espagnol</option>
@@ -44,6 +50,11 @@ include "header.php";
                 <div class="mb-3"><label class="form-label" for="message">Message</label><textarea class="form-control" id="message" name="message"></textarea></div>
                 <div class="mb-3"><button class="btn btn-primary" type="submit">Send</button></div>
             -->
+            </form>
+            <form action="orderConfirmation.php" method="post" enctype="multipart/form-data">
+                <label>Select a document to upload:</label> 
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="submit" value="Upload document" name="submit">
             </form>
         </div>
     </section>
