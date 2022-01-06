@@ -17,6 +17,7 @@ header {
 
 .text-info {
   color: rgb(0, 41, 166);
+  padding-top: 20px;
 }
 .btn {
   background-color: #6fbced;
@@ -47,4 +48,8 @@ header {
 .editacc {
   text-align: right;
   padding-right: 15px;
+}
+
+.error-img {
+  height: 400px;
 }

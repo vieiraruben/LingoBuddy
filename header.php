@@ -1,6 +1,5 @@
 <?php include "connect.php";
-$_SESSION["user"] = 101;
-$user = $_SESSION["user"];
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +26,11 @@ $user = $_SESSION["user"];
                         <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="pricing.php">Pricing</a></li>
                         <li class="nav-item"><a class="nav-link" href="translators.php">Translators</a></li>
-                        <li class="nav-item"><a class="nav-link" href="account.php">Account</a></li>
+                        <?php if (logged_in()) {
+                            echo '<li class="nav-item"><a class="nav-link" href="account-view.php">Account</a></li>';
+                        } else {
+                            echo '<li class="nav-item"><a class="nav-link" href="login.php">Log In</a></li>';
+                        } ?>
                     </ul>
                 </div>
             </div>
