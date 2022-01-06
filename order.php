@@ -50,7 +50,7 @@ $_SESSION['array'] = NULL;
             -->
             </form>
             <form action="orderConfirmation.php" method="post" enctype="multipart/form-data">
-                Select image to upload:
+                <label>Select a document to upload:</label> 
                 <input type="file" name="fileToUpload" id="fileToUpload">
                 <input type="submit" value="Upload document" name="submit">
             </form>
