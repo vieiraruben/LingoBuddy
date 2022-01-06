@@ -7,8 +7,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
-  /* --bs-blue: #0d6efd; */
-  --bs-blue: rgb(0, 41, 166);
+  --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
   --bs-pink: #d63384;
@@ -11354,7 +11353,6 @@ body {
   }
 }
 /*------------------------------------Login style----------------------------------------------------*/
-
 
 .wrapper {
   max-width: 350px;

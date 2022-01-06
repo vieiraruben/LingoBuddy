@@ -1,5 +1,9 @@
 <?php
 $pageTitle = "Home | LingoBuddy";
+if (isset($_GET["logout"])) {
+    session_start();
+    session_unset();
+};
 include "header.php";
 ?>
 <main class="page landing-page">
