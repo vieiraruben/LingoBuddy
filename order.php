@@ -1,6 +1,10 @@
 <?php
+
 $pageTitle = "order";
 include "header.php";
+session_start();
+$_SESSION['array'] = NULL;
+
 ?>
 <main class="page contact-us-page">
     <section class="clean-block clean-form dark">
@@ -44,6 +48,11 @@ include "header.php";
                 <div class="mb-3"><label class="form-label" for="message">Message</label><textarea class="form-control" id="message" name="message"></textarea></div>
                 <div class="mb-3"><button class="btn btn-primary" type="submit">Send</button></div>
             -->
+            </form>
+            <form action="orderConfirmation.php" method="post" enctype="multipart/form-data">
+                Select image to upload:
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="submit" value="Upload document" name="submit">
             </form>
         </div>
     </section>
