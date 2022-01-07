@@ -18,7 +18,7 @@ include "header.php";
             <form class="row g-3" action="order-recap.php" method="post" enctype="multipart/form-data">
                 <?php echo '<span class="col-12" style="color:red;">' . $_SESSION["upload_msg"] . '</span>'; ?>
                 <div class="col-md-6"><label class="form-label" for="source_language">Source Language</label>
-                    <select class="form-control" name="start_language" required>
+                    <select class="form-control" id="source_language" name="start_language" required>
                         <option disabled selected value> -- select language -- </option>
                         <option value="English">English</option>
                         <option value="Arabic">Arabic</option>
@@ -31,7 +31,7 @@ include "header.php";
                 </div>
                 <!-- Form to select destination language -->
                 <div class="col-md-6"><label class="form-label" for="target_language">Target Language</label>
-                    <select class="form-control" name="target_language" required>
+                    <select class="form-control" name="target_language" id="target_language" required>
                         <option disabled selected value> -- select language -- </option>
                         <option value="English">English</option>
                         <option value="Arabic">Arabic</option>

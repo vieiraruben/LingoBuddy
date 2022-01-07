@@ -2,7 +2,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 
 <head>
     <meta charset="utf-8">
@@ -19,7 +19,7 @@
 <body>
     <header>
         <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-            <div class="container"><a class="navbar-brand logo" href="#"><img class="img-logo" src="assets/img/language-translator.png" width="50" height="50">LingoBuddy</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="container"><a class="navbar-brand logo" href="#"><img alt="" class="img-logo" src="assets/img/language-translator.png" width="50" height="50">LingoBuddy</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
@@ -27,8 +27,8 @@
                         <li class="nav-item"><a class="nav-link" href="translators.php">Translators</a></li>
                         <?php if (logged_in()) {
                             echo '<li class="nav-item"><a class="nav-link" href="account-view.php">Account</a></li>'
-                                . '<form id="logout" method="GET" action="index.php"> 
-                            <li class="nav-item"><button class="btn btn-primary" type="submit" name="logout">Log Out</button></form></li>';
+                                . '<li class="nav-item"><form id="logout" method="GET" action="index.php"> 
+                            <button class="btn btn-primary" type="submit" name="logout">Log Out</button></form></li>';
                         } else {
                             echo '<li class="nav-item"><a class="btn btn-primary" href="login.php">Log In</a></li>';
                         } ?>
