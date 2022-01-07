@@ -20,7 +20,6 @@ if (isset($_GET['login'])) {
 }
 include "header.php";
 if (isset($_GET['add-order'])) {
-    // $_SESSION["signup_msg"] = '<p style="color:green;">Account created successfully.<br>Please log in to view your account.</p>';
     $sql = 'INSERT INTO user_order (user, word_count, price, file_url, original_language, target_language, created_on) 
     VALUES ("' . $_SESSION["user"] . '", "' . $_SESSION["order-array"]["word_count"] . '", "' .
         $_SESSION["order-array"]["price"] . '", "' . $_SESSION["order-array"]["file"] . '", "' .
@@ -117,7 +116,7 @@ if (isset($_GET['add-order'])) {
                         </div>
 
                     </div>
-                    <p class="editacc"><a class="btn btn-outline-primary btn-sm" href=" /editaccount.php">Edit account</a></p>
+                    <p class="editacc"><a class="btn btn-outline-primary btn-sm" href="editaccount.php">Edit account</a></p>
                     <a class="btn btn-outline-primary btn-sm" href="#" id="deleteacc" onclick="toggledelete()"> Delete account</a>
                     <form id="delete-form" method="POST" action="login.php">
                         <p id="confirm-delete" style="display: none;">Are you sure?<button type="submit" style="margin-left:13px;" name="delete" class="btn btn-danger" ">Delete</button></p>
