@@ -1,40 +1,65 @@
+Objectif 1 :
+Checking effectué !
+
+Objectif 2 :
+Checking effectué ! 
+
+Objectif 3 :
+Notre groupe a réalisé un Trello qui compillent l'ensemble des taches. 
+
 Objectif 4 : 
-Tout d'abord, l'utilisateur doit etre enregistré sur notre base de donnée. 
-Lors que le client selectionnera une formule dans l'onglet "Our Offers", il sera dirigé vers une autre page ou il pourra impoterr son document
-et ainsi choisir la langue de son choix.
-Cet acte d'achat sera consigné dans l'onglet "My Account". 
+Tout d'abord, l'utilisateur doit etre enregistré sur notre base de donnée, il doit necessairement etre connecté. 
+L'utilisateur devra se rendre dans l'onglet "my account" afin d'effectuer sa commande :
+Il devra remplir un formulaire ou il pourra upload son fichier ainsi que notifier le nombre de mot. 
+Le prix dépendra donc du nombre de mot. 
+function translator_price()
+
 Objectif 5 :
+Plsuieurs fonctions sont utilitilisées dans plusieurs fichiers tels que : 
+function price_calc()
+unction find_order()
 
 Objectif 6 :
-Utilisation de POST : inscription (en l'occurance, checker si les mots de passe sont identiques. )
-Utilisation de GET : connection de l'utilisateur.
+Utilisation de POST : inscription (en l'occurance, checker si les mots de passe sont identiques.)
+Utilisation de GET : connection de l'utilisateur. 
 
 Objectif 7 :
 Le projet est composé de plusieurs tables :
 User
-Language
-Translator 
+Language (clé étrangère )
+Translator (clé étrangère qui vient de la clé : Langage)
 User_order
 
 Objectif 8 :
+La table "order" est composé deux éléments clés qui matérialisent notre offre `original_language',`target_language`.
 
 Objectif 9 :
 La variable $_SESSION est intégré dans plusieurs pages clés tel que "account", "connect", "order" : toutes les pages qui impliquent
 un stockage de donné du client.
 
 Objectif 10 :
-Afin d'accomplir l'acte d'achat, l'utilisateur doit necessairement se connecter : création d'une function error_page().  
-Bien entenudu, l'utilisateur pourra se déconnecter et désactiver son compte. 
+Afin d'accomplir l'acte d'achat, l'utilisateur doit necessairement se connecter : création d'une function error_page (mise en place d'une condition)
+Bien entenudu, l'utilisateur pourra se déconnecter (création d'une fonction log_out : session_destroy()) et désactiver son compte.
+
 
 Objectif 11 :
-
+Afin d'ajouter des informations dans notre base de données, nous avons utilisé en autre "INSERT INTO" dans la page "Log In". 
 
 Objectif 12 :
+L'utilisateur peut supprimer son compte. 
+DELETE FROM - "Login".
 
 Objectif 13 :
+L'utilisateur peut modifier ses informations personnels via son espace.
+'UPDATE user SET' - "Account View"
 
 Objectif 14 : 
+La table User_order est composé d'une date, lorsque le client finalisera sa commande, la date de celle-ci s'affichera dans son tableau de bord.
+$date = order_created. 
 
 Objectif 15 :
+L'utilisateur pourra importer son document uniquement en PDF ou sous format doc, sans cela, un message d'erreur s'affichera. 
+fileToUpload.
 
 Objectif 16 :
+Vous retrouver le document "last_goal.txt" dans notre fichier. 
