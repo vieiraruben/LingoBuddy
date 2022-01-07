@@ -14,6 +14,7 @@ include "header.php";
                 <h2 class="text-info">New Order</h2>
                 <p>Fill out the form below to create your translation order.</p>
             </div>
+            <!-- Form to select start language  -->
             <form class="row g-3" action="order-recap.php" method="post" enctype="multipart/form-data">
                 <?php echo '<span class="col-12" style="color:red;">' . $_SESSION["upload_msg"] . '</span>'; ?>
                 <div class="col-md-6"><label class="form-label" for="source_language">Source Language</label>
@@ -28,6 +29,7 @@ include "header.php";
                         <option value="Italian">Italian</option>
                     </select>
                 </div>
+                <!-- Form to select destination language -->
                 <div class="col-md-6"><label class="form-label" for="target_language">Target Language</label>
                     <select class="form-control" name="target_language" required>
                         <option disabled selected value> -- select language -- </option>
@@ -40,6 +42,7 @@ include "header.php";
                         <option value="Italian">Italian</option>
                     </select>
                 </div>
+                <!-- Form to upload document -->
                 <div id="document-upload">
                     <div class="col-12"><label class="form-label" for="word_count">Word Count</label>
                         <input required class="form-control" type="number" id="word_count" name="word_count" min="50">
@@ -55,6 +58,7 @@ include "header.php";
                 </div>
             </form>
             <?php
+            // Check format document
             if (!empty($_FILES)) {
                 $file_name = $_FILES['fileToUpload']['name'];
                 $file_extention = strrchr($file_name, ".");
@@ -64,7 +68,7 @@ include "header.php";
 
                 $authorised_extentions = array('.pdf', '.PDF');
 
-
+             
                 if (in_array($file_extention, $authorised_extentions)) {
                     if (move_uploaded_file($file_tmp_name, $file_destination)) {
                         $req = $db_upload->prepare('INSERT INTO files (file_name, file_url) VALUES(?,?)');
