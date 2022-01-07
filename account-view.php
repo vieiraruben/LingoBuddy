@@ -25,8 +25,10 @@ session_start();
 $target_dir = getcwd() . DIRECTORY_SEPARATOR;
 $target_file = $target_dir . basename($_FILES["avatar_url"]["name"]);
 $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+$_SESSION["edit_error"] = "";
 if ($_FILES["avatar_url"]["name"] != "") {
     if ($fileType != "jpg" && $fileType != "png") {
+        header("Location:editaccount.php");
         $_SESSION["edit_error"] = "Only image file types are allowed.";
         exit();
     } else {
@@ -40,7 +42,6 @@ if ($_FILES["avatar_url"]["name"] != "") {
         $statement->execute($data);
     }
 };
-
 //
 
 include "header.php";

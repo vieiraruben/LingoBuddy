@@ -10,6 +10,7 @@ include "header.php";
                 <p>Change your account information below.</p>
             </div>
             <form action="account-view.php" method="post" class="row g-3" enctype="multipart/form-data">
+                <p style="color:red;"><?php echo $_SESSION["edit_error"]; ?></p>
                 <div class="col-md-6"><label class="form-label" for="first_name">First Name</label>
                     <input value="<?php echo user_first_name($user) ?>" required class="form-control" type="text" id="name" name="first_name">
                 </div>

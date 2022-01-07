@@ -1,8 +1,5 @@
 <?php
 $pageTitle = "Confirm Order | LingoBuddy";
-
-
-
 session_start();
 $target_dir = getcwd() . DIRECTORY_SEPARATOR;
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -25,13 +22,7 @@ if ($_FILES["fileToUpload"]["name"] != "") {
     $_SESSION["upload_msg"] = "";
 };
 include "header.php";
-
-
-
 ?>
-
-
-
 <main class="page contact-us-page">
     <section class="clean-block clean-form dark">
         <div class="container">
