@@ -57,31 +57,6 @@ include "header.php";
                     <button type="submit" class="btn btn-primary" id="order-btn" name="create-order">Confirm</button>
                 </div>
             </form>
-            <?php
-            // Check format document
-            if (!empty($_FILES)) {
-                $file_name = $_FILES['fileToUpload']['name'];
-                $file_extention = strrchr($file_name, ".");
-
-                $file_tmp_name = $_FILES['fileToUpload']['tmp_name'];
-                $file_destination = '../files/' . $file_name;
-
-                $authorised_extentions = array('.pdf', '.PDF');
-
-             
-                if (in_array($file_extention, $authorised_extentions)) {
-                    if (move_uploaded_file($file_tmp_name, $file_destination)) {
-                        $req = $db_upload->prepare('INSERT INTO files (file_name, file_url) VALUES(?,?)');
-                        $req->execute(array($file_name, $file_destination));
-                        echo 'File successfully uploaded.';
-                    } else {
-                        echo 'There was an error while sendind the file.';
-                    }
-                } else {
-                    echo 'Only PDF formats are authorised!';
-                }
-            }
-            ?>
         </div>
     </section>
 </main>
