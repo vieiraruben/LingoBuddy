@@ -13,13 +13,13 @@ include "header.php";
             <form class="row g-3" method="POST" action="login.php">
                 <?php echo '<span class="col-12">' . $_SESSION["signup_msg"] . '</span>'; ?>
                 <div class="col-md-6"><label class="form-label" for="first_name">First Name</label>
-                    <input required class="form-control" type="text" id="name" name="first_name">
+                    <input required class="form-control" id="first_name" type="text" name="first_name">
                 </div>
                 <div class="col-md-6"><label class="form-label" for="last_name">Last Name</label>
-                    <input required class="form-control" type="text" name="last_name">
+                    <input required class="form-control" id="last_name" type="text" name="last_name">
                 </div>
                 <div class="col-12"><label class="form-label" for="email">Email</label>
-                    <input required class="form-control" type="email" id="email" name="email">
+                    <input required class="form-control" id="email" type="email" name="email">
                 </div>
                 <div class="col-md-6"><label class="form-label" for="phone_number">Phone Number</label>
                     <input required class="form-control" type="tel" id="phone_number" name="phone_number">
