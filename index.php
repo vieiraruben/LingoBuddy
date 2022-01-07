@@ -21,7 +21,7 @@ include "header.php";
         <div class="container">
             <div class="block-heading">
                 <h2 class="text-info">Entrust your content to our experienced interpreters!</h2>
-             </div>   
+            </div>
             <div class="row justify-content-center">
                 <div class="col-sm-6 col-lg-4">
                     <div class="card text-center clean-card"><img class="card-img-top w-100 d-block" src="assets/img/solution.jpg" alt="">
@@ -32,7 +32,7 @@ include "header.php";
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-4">
-                    <div class="card text-center clean-card"><img class="card-img-top w-100 d-block" src="assets/img/best.jpg" alt="" >
+                    <div class="card text-center clean-card"><img class="card-img-top w-100 d-block" src="assets/img/best.jpg" alt="">
                         <div class="card-body info">
                             <h4 class="card-title">Excellency</h4>
                             <p class="card-text">Our interpreters have a minimum of 5 years experience. Moreover, they have all studied or lived abroad </p>
@@ -48,7 +48,6 @@ include "header.php";
                     </div>
                 </div>
             </div>
-        </div>   
     </section>
     <section class="clean-block slider dark">
         <div class="container">
