@@ -120,7 +120,7 @@ function avatar_url($user)
     if ($row["avatar_url"] != "" && $row["avatar_url"] != null) {
         return $row["avatar_url"];
     } else {
-        return "assets/img/user.svg";
+        return "assets/img/user.png";
     }
 }
 

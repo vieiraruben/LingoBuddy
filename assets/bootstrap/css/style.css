@@ -14,7 +14,9 @@ header {
 .img-logo {
   margin-right: 1rem;
 }
-
+.lingonav {
+  padding: 0;
+}
 .text-info {
   color: rgb(0, 41, 166);
   padding-top: 20px;
@@ -119,4 +121,7 @@ header {
   width: 150px;
   height: 150px;
   border-radius: 50%;
+  border-style: solid;
+  border-color: #777f87;
+  border-width: 1px;
 }

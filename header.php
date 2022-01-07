@@ -16,7 +16,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <nav class="lingonav navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
             <div class="container"><a class="navbar-brand logo" href="#"><img class="img-logo" src="assets/img/language-translator.png" alt="" width="50" height="50">LingoBuddy</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="navbar-nav ms-auto">
