@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jan 05, 2022 at 01:26 PM
+-- Generation Time: Jan 07, 2022 at 08:20 AM
 -- Server version: 5.7.34
 -- PHP Version: 8.0.8
 
@@ -91,7 +91,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `password`, `country`, `phone_number`) VALUES
-(101, 'Peter', 'Brown', 'brown@mail.com', 'qwerty1', 'France', 756519395);
+(101, 'Peter', 'Brown', 'brown@gmail.com', 'zebra', 'France', 76775843),
+(108, 'Sandra', 'Sanchez', 'sanchez@gmail.com', 'jedi1', 'Colombia', 76956845),
+(109, 'Mike', 'Delfino', 'mike@delfino.com', 'snowbear', 'Italy', 76858238),
+(110, 'Andre', 'Silva', 'silva@hotmail.com', 'adele1', 'Peru', 43857834);
 
 -- --------------------------------------------------------
 
@@ -105,17 +108,21 @@ CREATE TABLE `user_order` (
   `word_count` int(11) NOT NULL,
   `file_url` varchar(250) NOT NULL,
   `created_on` datetime NOT NULL,
-  `price` int(11) NOT NULL
+  `price` int(11) NOT NULL,
+  `original_language` varchar(25) DEFAULT NULL,
+  `target_language` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_order`
 --
 
-INSERT INTO `user_order` (`id`, `user`, `word_count`, `file_url`, `created_on`, `price`) VALUES
-(1, 101, 500, 'hello.txt', '2022-01-05 09:31:34', 47),
-(2, 101, 350, 'file.doc', '2022-01-05 10:04:28', 35),
-(3, 101, 1000, 'essay.doc', '2022-01-05 10:05:43', 65);
+INSERT INTO `user_order` (`id`, `user`, `word_count`, `file_url`, `created_on`, `price`, `original_language`, `target_language`) VALUES
+(3, 101, 1000, 'essay.doc', '2022-01-05 10:05:43', 65, 'Arabic', 'Italian'),
+(4, 101, 500, 'presentation.doc', '2022-01-04 14:49:58', 50, 'Danish', 'Dutch'),
+(5, 101, 500, 'hello1.txt', '2022-01-06 13:57:25', 47, 'French', 'Italian'),
+(6, 101, 530, 'test2.pdf', '2022-01-06 23:09:50', 180, 'Arabic', 'English'),
+(7, 101, 500, 'hello.txt', '2022-01-06 23:22:35', 180, 'English', 'Portuguese');
 
 --
 -- Indexes for dumped tables
@@ -169,13 +176,13 @@ ALTER TABLE `translator`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT for table `user_order`
 --
 ALTER TABLE `user_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
