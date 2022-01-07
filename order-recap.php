@@ -1,18 +1,23 @@
 <?php
 $pageTitle = "Confirm Order | LingoBuddy";
 session_start();
-// File upload script
 $target_dir = getcwd() . DIRECTORY_SEPARATOR;
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-$upload_msg = "";
+if ($_POST["start_language"] == $_POST["target_language"]) {
+    $_SESSION["upload_msg"] = "Please choose different languages.";
+    header("Location:order.php");
+    exit();
+}
+if ($fileType != "pdf" && $fileType != "doc" && $fileType != "txt") {
+    $_SESSION["upload_msg"] = "Only document file types are allowed.";
+    header("Location:order.php");
+    exit();
+}
+// File upload script
 $_SESSION["order-array"] = $_POST;
 $_SESSION["order-array"]["file"] = $_FILES["fileToUpload"]["name"];
 if ($_FILES["fileToUpload"]["name"] != "") {
-    if ($fileType != "pdf" && $fileType != "doc" && $fileType != "txt") {
-        $_SESSION["upload_msg"] = "Only document file types are allowed.";
-        header("Location:order.php");
-    }
     move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
     $_SESSION["upload_msg"] = "";
 };

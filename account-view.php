@@ -55,12 +55,6 @@ if (isset($_GET['add-order'])) {
                 <h2 class="text-info">My Account</h2>
                 <p><?php
                     if (isset($_POST['submit'])) {
-                        $email = $_POST['email'];
-                        $first_name = $_POST['first_name'];
-                        $last_name = $_POST['last_name'];
-                        $country = $_POST['country'];
-                        $password = $_POST['password'];
-                        $phone_number = $_POST['phone_number'];
                         $sql = 'UPDATE user SET email ="' . $_POST['email'] . '", first_name ="' .
                             $_POST['first_name'] . '", last_name ="' . $_POST['last_name'] . '", country ="' .
                             $_POST['country'] . '", phone_number ="' . $_POST['phone_number'] . '", password ="' .
