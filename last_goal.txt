@@ -5,19 +5,20 @@ Objectif 2 :
 Checking effectué ! 
 
 Objectif 3 :
-Notre groupe a réalisé un Trello qui compillent l'ensemble des taches. 
+Notre groupe a réalisé un Trello qui compillent l'ensemble des taches effectués. 
 
 Objectif 4 : 
-Tout d'abord, l'utilisateur doit etre enregistré sur notre base de donnée, il doit necessairement etre connecté. 
+Tout d'abord, l'utilisateur doit etre enregistré sur notre base de donnée, il doit necessairement être connecté. 
 L'utilisateur devra se rendre dans l'onglet "my account" afin d'effectuer sa commande :
 Il devra remplir un formulaire ou il pourra upload son fichier ainsi que notifier le nombre de mot. 
 Le prix dépendra donc du nombre de mot. 
 function translator_price()
+À noter, qu'un message d'erreur s'affichera si l'utilisateur choisit la même langue "d'origine" et d'arriver". 
 
 Objectif 5 :
 Plsuieurs fonctions sont utilitilisées dans plusieurs fichiers tels que : 
 function price_calc()
-unction find_order()
+function find_order()
 
 Objectif 6 :
 Utilisation de POST : inscription (en l'occurance, checker si les mots de passe sont identiques.)
@@ -39,8 +40,8 @@ un stockage de donné du client.
 
 Objectif 10 :
 Afin d'accomplir l'acte d'achat, l'utilisateur doit necessairement se connecter : création d'une function error_page (mise en place d'une condition)
-Bien entenudu, l'utilisateur pourra se déconnecter (création d'une fonction log_out : session_destroy()) et désactiver son compte.
-
+Bien entenudu, l'utilisateur pourra se déconnecter (création d'une fonction log_out : session_destroy()) et désactiver 
+son compte (un message d'erreur s'affiche lorsqu'un utilisateur remet son adresse email)
 
 Objectif 11 :
 Afin d'ajouter des informations dans notre base de données, nous avons utilisé en autre "INSERT INTO" dans la page "Log In". 
@@ -58,7 +59,8 @@ La table User_order est composé d'une date, lorsque le client finalisera sa com
 $date = order_created. 
 
 Objectif 15 :
-L'utilisateur pourra importer son document uniquement en PDF ou sous format doc, sans cela, un message d'erreur s'affichera. 
+L'utilisateur pourra importer son document uniquement en PDF, sous format doc ou en format txt.
+Sans cet enregistrement, un message d'erreur s'affichera. 
 fileToUpload.
 
 Objectif 16 :

@@ -48,9 +48,6 @@ include "header.php";
                     </div>
                 </div>
             </div>
-            <div class="d-flex mt-100">
-                <a href="pricing.php" class="btn btn-outline-dark" role="button" aria-pressed="true">Discover our offers! </a>      
-            </div>
         </div>    
     </section>
     <section class="clean-block slider dark">
