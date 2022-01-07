@@ -5,7 +5,7 @@ Objectif 2 :
 Checking effectué ! 
 
 Objectif 3 :
-Notre groupe a réalisé un Trello qui compillent l'ensemble des taches. 
+Notre groupe a réalisé un Trello qui compillent l'ensemble des taches effectués. 
 
 Objectif 4 : 
 Tout d'abord, l'utilisateur doit etre enregistré sur notre base de donnée, il doit necessairement etre connecté. 
@@ -17,7 +17,7 @@ function translator_price()
 Objectif 5 :
 Plsuieurs fonctions sont utilitilisées dans plusieurs fichiers tels que : 
 function price_calc()
-unction find_order()
+function find_order()
 
 Objectif 6 :
 Utilisation de POST : inscription (en l'occurance, checker si les mots de passe sont identiques.)
@@ -40,7 +40,6 @@ un stockage de donné du client.
 Objectif 10 :
 Afin d'accomplir l'acte d'achat, l'utilisateur doit necessairement se connecter : création d'une function error_page (mise en place d'une condition)
 Bien entenudu, l'utilisateur pourra se déconnecter (création d'une fonction log_out : session_destroy()) et désactiver son compte.
-
 
 Objectif 11 :
 Afin d'ajouter des informations dans notre base de données, nous avons utilisé en autre "INSERT INTO" dans la page "Log In". 
