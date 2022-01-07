@@ -55,7 +55,7 @@ include "header.php";
                 <h2 class="text-info">Our partners who recommend us !</h2>
             </div>
             <div class="carousel slide" data-bs-ride="carousel" id="carousel-1">
-                <div class="carousel-inner">
+                <div class="carousel-inner" style="height:700px;">
                     <div class="carousel-item active"><img class="w-100 d-block" src="assets/img/peinture.jpg " alt="Slide Image"></div>
                     <div class="carousel-item"><img class="w-100 d-block" src="assets/img/paris.jpg" alt="Slide Image"></div>
                 </div>
