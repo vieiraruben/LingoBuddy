@@ -6,8 +6,8 @@ include "header.php";
     <section class="clean-block clean-pricing dark">
         <div class="container">
             <div class="block-heading">
-                <h2 class="text-info">Service prices</h2>
-                <p>Here are some examples of prices</p>
+                <h2 class="text-info">Our offers</h2>
+                <p>Choose the offer adapted to your needs !</p>
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-5 col-lg-4">
