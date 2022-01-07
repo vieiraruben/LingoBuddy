@@ -110,6 +110,20 @@ function user_phone($user)
     return $row["phone_number"];
 }
 
+function avatar_url($user)
+{
+    $mysqli = new mysqli('localhost', 'root', 'root', 'lingobuddy');
+    $sql = "SELECT `avatar_url` FROM `user` WHERE `id`=" . $user . ";";
+    $result = $mysqli->query($sql);
+    $row = $result->fetch_assoc();
+    $mysqli->close();
+    if ($row["avatar_url"] != "" && $row["avatar_url"] != null) {
+        return $row["avatar_url"];
+    } else {
+        return "assets/img/user.svg";
+    }
+}
+
 function user_country($user)
 {
     $mysqli = new mysqli('localhost', 'root', 'root', 'lingobuddy');

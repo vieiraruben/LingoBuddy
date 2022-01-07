@@ -107,7 +107,15 @@ header {
   margin-top: 1rem;
 }
 
-.order-recap-container {
+.order-recap-container,
+.avatar-container {
   display: flex;
   justify-content: center;
+}
+
+.avatar-pic {
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }

@@ -9,7 +9,7 @@ include "header.php";
                 <h2 class="text-info">Edit Account</h2>
                 <p>Change your account information below.</p>
             </div>
-            <form action="account-view.php" method="post" class="row g-3">
+            <form action="account-view.php" method="post" class="row g-3" enctype="multipart/form-data">
                 <div class="col-md-6"><label class="form-label" for="first_name">First Name</label>
                     <input value="<?php echo user_first_name($user) ?>" required class="form-control" type="text" id="name" name="first_name">
                 </div>
@@ -27,6 +27,9 @@ include "header.php";
                 </div>
                 <div class="col-12"><label class="form-label" for="password">Password</label>
                     <input value="<?php echo user_password($user) ?>" required class="form-control" type="password" id="password" name="password">
+                </div>
+                <div class="col-12"><label class="form-label" for="avatar">Profile Picture</label>
+                    <input class="form-control" type="file" id="avatar" name="avatar_url">
                 </div>
                 <div class="col-12"><button class="btn btn-primary" name="submit" type="submit">Confirm</button></div>
             </form>

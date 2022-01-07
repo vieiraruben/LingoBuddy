@@ -18,6 +18,31 @@ if (isset($_GET['login'])) {
         exit;
     }
 }
+//avatar
+
+
+session_start();
+$target_dir = getcwd() . DIRECTORY_SEPARATOR;
+$target_file = $target_dir . basename($_FILES["avatar_url"]["name"]);
+$fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+if ($_FILES["avatar_url"]["name"] != "") {
+    if ($fileType != "jpg" && $fileType != "png") {
+        $_SESSION["edit_error"] = "Only image file types are allowed.";
+        exit();
+    } else {
+        move_uploaded_file($_FILES["avatar_url"]["tmp_name"], $target_file);
+        $_SESSION["avatar_file"] = $_FILES["avatar_url"]["name"];
+        $sql = 'UPDATE user SET avatar_url ="' . $_SESSION["avatar_file"] . '" WHERE id = "' . $_SESSION["user"] . '";';
+        $servername = "localhost";
+        $dbname = "lingobuddy";
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", 'root', 'root');
+        $statement = $conn->prepare($sql);
+        $statement->execute($data);
+    }
+};
+
+//
+
 include "header.php";
 if (isset($_GET['add-order'])) {
     $sql = 'INSERT INTO user_order (user, word_count, price, file_url, original_language, target_language, created_on) 
@@ -74,8 +99,9 @@ if (isset($_GET['add-order'])) {
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12">
-                                <p class="text-muted mb-0"><img src="assets/img/user.svg">
-                                    <?php echo user_first_name($user) . " " . user_last_name($user) ?></p>
+                                <span class="avatar-container">
+                                    <img class="avatar-pic" src="<?php echo avatar_url($user) ?>">
+                                </span>
                             </div>
                         </div>
                         <hr>
