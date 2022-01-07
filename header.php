@@ -2,7 +2,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 
 <head>
     <meta charset="utf-8">
@@ -27,8 +27,8 @@
                         <li class="nav-item"><a class="nav-link" href="translators.php">Translators</a></li>
                         <?php if (logged_in()) {
                             echo '<li class="nav-item"><a class="nav-link" href="account-view.php">Account</a></li>'
-                                . '<form id="logout" method="GET" action="index.php"> 
-                            <li class="nav-item"><button class="btn btn-primary" type="submit" name="logout">Log Out</button></form></li>';
+                                . '<li class="nav-item"><form id="logout" method="GET" action="index.php"> 
+                            <button class="btn btn-primary" type="submit" name="logout">Log Out</button></form></li>';
                         } else {
                             echo '<li class="nav-item"><a class="btn btn-primary" href="login.php">Log In</a></li>';
                         } ?>
