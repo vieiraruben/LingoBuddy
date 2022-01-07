@@ -1,19 +1,33 @@
 Objectif 4 : 
-Lors que le client slééctionne une fo
-
+Tout d'abord, l'utilisateur doit etre enregistré sur notre base de donnée. 
+Lors que le client selectionnera une formule dans l'onglet "Our Offers", il sera dirigé vers une autre page ou il pourra impoterr son document
+et ainsi choisir la langue de son choix.
+Cet acte d'achat sera consigné dans l'onglet "My Account". 
 Objectif 5 :
 
 Objectif 6 :
+Utilisation de POST : inscription (en l'occurance, checker si les mots de passe sont identiques. )
+Utilisation de GET : connection de l'utilisateur.
 
 Objectif 7 :
+Le projet est composé de plusieurs tables :
+User
+Language
+Translator 
+User_order
 
 Objectif 8 :
 
 Objectif 9 :
+La variable $_SESSION est intégré dans plusieurs pages clés tel que "account", "connect", "order" : toutes les pages qui impliquent
+un stockage de donné du client.
 
 Objectif 10 :
+Afin d'accomplir l'acte d'achat, l'utilisateur doit necessairement se connecter : création d'une function error_page().  
+Bien entenudu, l'utilisateur pourra se déconnecter et désactiver son compte. 
 
 Objectif 11 :
+
 
 Objectif 12 :
 
