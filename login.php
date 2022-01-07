@@ -45,14 +45,14 @@ if (isset($_POST['delete'])) {
                 <?php echo '<span class="col-12" style="color:red;">' . $_SESSION["login_msg"] . '</span>'; ?>
                 <div class="col-md-6">
                     <label class="form-label" for="email">Email</label>
-                    <input class="form-control" type="email" name="email" required>
+                    <input class="form-control" id="email" type="email" name="email" required>
                 </div>
                 <div class="col-md-6">
                     <label class="form-label" for="password">Password</label>
-                    <input class="form-control" type="password" name="password" required>
+                    <input class="form-control" id="password" type="password" name="password" required>
                 </div>
                 <div class="col-12">
-                    <button class="btn btn-primary" type="submit" name="login" class="btn mt-3">Log In</button>
+                    <button class="btn btn-primary btn mt-3" type="submit" name="login">Log In</button>
                 </div>
                 <div class="text-center col-12">New user? <a class="btn btn-secondary btn-sm small-btn" href="signup.php">Sign Up</a> </div>
 
