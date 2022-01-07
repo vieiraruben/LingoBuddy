@@ -22,21 +22,20 @@ $date->add(new DateInterval('PT10H30S'));
 echo $date->format('Y-m-d H:i:s') . "\n";
 
 //function translate_delivery($upload_date){
-    //$today = date("F j, Y");
-    //$delivery_date = $today + 10;
-    //return $delivery_date;
+//$today = date("F j, Y");
+//$delivery_date = $today + 10;
+//return $delivery_date;
 //}
 
 
 
-Add order to a database:
 
 
 
 $sql = 'INSERT INTO user_order (user, start_lang, target_lang, price, translator) VALUES ("' . $_SESSION['user'] . '", "' .
-$_POST['first_name'] . '", "' . $_POST['last_name'] . '", "' .
-$_POST['country'] . '", "' . $_POST['phone_number'] . '", "' .
-$_POST['password'] . '");';
+    $_POST['first_name'] . '", "' . $_POST['last_name'] . '", "' .
+    $_POST['country'] . '", "' . $_POST['phone_number'] . '", "' .
+    $_POST['password'] . '");';
 
 
 $servername = "localhost";

@@ -21,11 +21,11 @@ function find_order($user)
             echo '<tr>
                         <th scope="row">' . $row["id"] . '</th>
                         <td>' . $row["word_count"] . '</td>
-                        <td>' . $row["price"] . '</td>
+                        <td>' . $row["price"] . '.00€</td>
                         <td>' . $row["created_on"] . '</td>
                         <td>' . $row["file_url"] . '</td>
                         <td>' . how_long_ago($row["created_on"]) . '</td>
-                        <td>Edit</td>
+                        <td><a download href="/' . $row["file_url"] . '"><img src="assets/img/dl.svg"></a></td>
                     </tr>';
         }
     } else echo '<tr><td style="border: none; box-shadow: none;">No orders found</td></tr>';
@@ -123,7 +123,7 @@ function user_country($user)
 function price_calc($word): int
 {
     if ($word * 0.18 < 25) return 25;
-    return 1000 * 0.18;
+    return $word * 0.18;
 }
 
 function log_in($email, $password)
@@ -192,9 +192,5 @@ function how_long_ago($date)
             return $diff . " " . $strTime[$i] . "s ago ";
         }
     }
-}
-try {
-    $db_upload = new PDO('mysql:host=localhost;dbname=upload', 'root', 'root');
-} catch (PDOException $e) {
-    die('Error: ' . $e->getMessage());
+    return "now";
 }

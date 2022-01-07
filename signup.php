@@ -16,7 +16,7 @@ include "header.php";
                     <input required class="form-control" type="text" id="name" name="first_name">
                 </div>
                 <div class="col-md-6"><label class="form-label" for="last_name">Last Name</label>
-                    <input required class="form-control" type="text" id="name" name="last_name">
+                    <input required class="form-control" type="text" name="last_name">
                 </div>
                 <div class="col-12"><label class="form-label" for="email">Email</label>
                     <input required class="form-control" type="email" id="email" name="email">
@@ -30,7 +30,7 @@ include "header.php";
                 <div class="col-md-6"><label class="form-label" for="password">Password</label>
                     <input required class="form-control" type="password" id="password" name="password">
                 </div>
-                <div class="col-md-6"><label class="form-label" for="password">Confirm password</label>
+                <div class="col-md-6"><label class="form-label" for="password">Confirm Password</label>
                     <input type="password" class="form-control" name="cPassword" required>
                 </div>
                 <div class="col-12">

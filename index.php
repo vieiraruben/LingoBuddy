@@ -7,10 +7,7 @@ if (isset($_GET["logout"])) {
 include "header.php";
 ?>
 <main class="page landing-page">
-    <section class="clean-block clean-hero" style="
-    /* background-image:url(&quot;assets/img/background.jpeg&quot;); */
-    
-    color:rgba(255, 255, 255);">
+    <section class="clean-block clean-hero" style="color:rgba(255, 255, 255);">
         <div class="d-flex justify-content-around">
             <img class="text" src="assets/img/language-translator.png" width="400" height="400">
             <div class="text flex-column d-flex justify-content-around">

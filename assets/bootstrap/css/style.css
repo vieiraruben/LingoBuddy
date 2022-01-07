@@ -47,15 +47,17 @@ header {
 
 .editacc,
 #deleteacc {
+  width: 118px;
   text-align: right;
-  padding-right: 15px;
+  margin-left: 250px;
 }
 
 .error-img {
   height: 400px;
 }
 
-#delete-form {
+#delete-form,
+#add-order {
   border-top: 0;
   background-color: transparent;
   max-width: auto;
@@ -80,5 +82,32 @@ header {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
   padding: 20px;
-  height: 338px;
+  height: 356px;
+}
+
+.new-order {
+  width: fit-content;
+}
+
+.order-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.order-details {
+  flex-basis: 50%;
+}
+
+#add-order,
+#order-btn {
+  margin: 20px;
+}
+
+#file-label {
+  margin-top: 1rem;
+}
+
+.order-recap-container {
+  display: flex;
+  justify-content: center;
 }

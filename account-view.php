@@ -11,12 +11,27 @@ if (isset($_GET['login'])) {
         $_SESSION["user"] = $row["id"];
         $user = $_SESSION["user"];
         unset($_GET['login']);
+        unset($_SESSION["login_msg"]);
     } else {
+        $_SESSION["login_msg"] = "Invalid login details.";
         header("Location:login.php");
         exit;
     }
 }
 include "header.php";
+if (isset($_GET['add-order'])) {
+    // $_SESSION["signup_msg"] = '<p style="color:green;">Account created successfully.<br>Please log in to view your account.</p>';
+    $sql = 'INSERT INTO user_order (user, word_count, price, file_url, original_language, target_language, created_on) 
+    VALUES ("' . $_SESSION["user"] . '", "' . $_SESSION["order-array"]["word_count"] . '", "' .
+        $_SESSION["order-array"]["price"] . '", "' . $_SESSION["order-array"]["file"] . '", "' .
+        $_SESSION["order-array"]["start_language"] . '", "' . $_SESSION["order-array"]["target_language"] . '", NOW());';
+    $servername = "localhost";
+    $dbname = "lingobuddy";
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", 'root', 'root');
+    $statement = $conn->prepare($sql);
+    $statement->execute($data);
+    unset($_SESSION["order-array"]);
+}
 ?>
 <script>
     function toggledelete() {
@@ -55,7 +70,7 @@ include "header.php";
                         $conn = new PDO("mysql:host=$servername;dbname=$dbname", 'root', 'root');
                         $statement = $conn->prepare($sql);
                         if ($statement->execute($data)) {
-                            echo '<p style="color:green; font-weight: bold;">Account updated successfully!</p>';
+                            echo '<p style="color:green; font-weight: bold;">&#9989; Account updated successfully!</p>';
                         }
                         unset($_POST['submit']);
                     }; ?></p>
@@ -64,6 +79,13 @@ include "header.php";
             <div class="account-container">
                 <div class="card mb-4 contact-details">
                     <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="text-muted mb-0"><img src="assets/img/user.svg">
+                                    <?php echo user_first_name($user) . " " . user_last_name($user) ?></p>
+                            </div>
+                        </div>
+                        <hr>
                         <div class="row">
                             <div class="col-sm-3">
                                 <p class="mb-0">Name</p>
@@ -101,10 +123,10 @@ include "header.php";
                         </div>
 
                     </div>
-                    <p class="editacc link-primary"><a href=" /editaccount.php">Edit account</a></p>
-                    <a class="link-primary" href="#" id="deleteacc" onclick="toggledelete()"> Delete account</a>
+                    <p class="editacc"><a class="btn btn-outline-primary btn-sm" href=" /editaccount.php">Edit account</a></p>
+                    <a class="btn btn-outline-primary btn-sm" href="#" id="deleteacc" onclick="toggledelete()"> Delete account</a>
                     <form id="delete-form" method="POST" action="login.php">
-                        <p id="confirm-delete" style="display: none;">Are you sure? <button type="submit" style="margin-left:20px;" name="delete" class="btn btn-danger" ">Delete</button></p>
+                        <p id="confirm-delete" style="display: none;">Are you sure?<button type="submit" style="margin-left:13px;" name="delete" class="btn btn-danger" ">Delete</button></p>
 
 
                 </div>
@@ -123,6 +145,9 @@ include "header.php";
                                         <?php find_order($user) ?>
                                     </tbody>
                                 </table>
+                                <div class="order-container">
+                                    <a class="btn btn-primary new-order" href="order.php" role="button">New Order</a>
+                                </div>
                 </div>
             </div>
         </div>

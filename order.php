@@ -1,62 +1,90 @@
 <?php
-
-$pageTitle = "order";
+$pageTitle = "New Order | LingoBuddy";
 include "header.php";
-session_start();
 $_SESSION['array'] = NULL;
-
 ?>
+<script>
+    function toggledelete() {
+        var toggle = document.getElementById("document-upload");
+        if (toggle.style.display == "none") {
+            toggle.style.display = "block";
+        } else {
+            toggle.style.display = "none";
+        }
+    }
+
+    function hide() {
+        var toggle = document.getElementById("document-upload");
+        if (!(toggle.style.display == "none")) {
+            toggle.style.display = "none";
+        }
+    }
+</script>
 <main class="page contact-us-page">
     <section class="clean-block clean-form dark">
         <div class="container">
             <div class="block-heading">
-                <h2 class="text-info">Your order</h2>
-                <p>Select if you need a translator or/and a document translation</p>
+                <?php if (!logged_in()) {
+                    error_page();
+                    include "footer.php";
+                    exit();
+                } ?>
+                <h2 class="text-info">New Order</h2>
+                <p>Fill out the form below to create your translation order.</p>
             </div>
-            <form action="order-confirmation.php" methode="get">
-                <label>Do you need a translator : </label>
-                <label for="yes">yes</label>
-                <input type="checkbox" id="yes" name="yes" value="yes-checked"> </input>
-                <label for="yes">no</label>
-                <input type="checkbox" id="no" name="no" value="no-checked"> </input>
+            <form class="row g-3" action="order-recap.php" method="post" enctype="multipart/form-data">
+                <?php echo '<span class="col-12">' . $_SESSION["signup_msg"] . '</span>'; ?>
+                <div class="col-12"><label class="form-label" for="translation-type">Translation Type</label>
 
-                <label>Which is the start language</label>
-                <select name="start_language" id="start-language">
-                    <option value="none"> Select a language</option>
-                    <option value="english"> English</option>
-                    <option value="portuguese">Portuguese</option>
-                    <option value="espagnol">Espagnol</option>
-                    <option value="German">German</option>
-                    <option value="french">French</option>
-                    <option value="italian">Italian</option>
-                </select>
 
-                <label>Which is the destination language</label>
-                <select name="destination_language" id="destination-language">
-                    <option value="none"> Select a language</option>
-                    <option value="english"> English</option>
-                    <option value="portuguese">Portuguese</option>
-                    <option value="espagnol">Espagnol</option>
-                    <option value="German">German</option>
-                    <option value="french">French</option>
-                    <option value="italian">Italian</option>
-                </select>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="Document" name="translation_type" class="custom-control-input" required>
+                        <label onclick="toggledelete()" for="Document" class="custom-control-label" for="customRadioInline1">Document</label>
+                    </div>
 
-                <input type="submit" value="valider">
 
-                <input type="submit" value="valider">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="In-Person" name="translation_type" class="custom-control-input" required>
+                        <label onclick="hide()" for="In-Person" class="custom-control-label">In-Person Translator</label>
+                    </div>
+                </div>
+                <div class="col-md-6"><label class="form-label" for="source_language">Source Language</label>
+                    <select class="form-control" name="start_language" required>
+                        <option disabled selected value> -- select language -- </option>
+                        <option value="English">English</option>
+                        <option value="Arabic">Arabic</option>
+                        <option value="Portuguese">Portuguese</option>
+                        <option value="Spanish">Spanish</option>
+                        <option value="German">German</option>
+                        <option value="French">French</option>
+                        <option value="Italian">Italian</option>
+                    </select>
+                </div>
+                <div class="col-md-6"><label class="form-label" for="target_language">Target Language</label>
+                    <select class="form-control" name="target_language" required>
+                        <option disabled selected value> -- select language -- </option>
+                        <option value="English">English</option>
+                        <option value="Arabic">Arabic</option>
+                        <option value="Portuguese">Portuguese</option>
+                        <option value="Spanish">Spanish</option>
+                        <option value="German">German</option>
+                        <option value="French">French</option>
+                        <option value="Italian">Italian</option>
+                    </select>
+                </div>
+                <div id="document-upload" style="display:none;" ;>
+                    <div class="col-12"><label class="form-label" for="word_count">Word Count</label>
+                        <input class="form-control" type="number" id="word_count" name="word_count" min="50">
+                    </div>
+                    <div class="col-12">
+                        <label id="file-label" class="form-label">File to be Translated</label>
+                        <input type="file" name="fileToUpload" id="fileToUpload">
+                    </div>
+                </div>
 
-                <!--  <div class="mb-3"><label class="form-label" for="name">Name</label><input class="form-control" type="text" id="name" name="name"></div>
-                <div class="mb-3"><label class="form-label" for="subject">Subject</label><input class="form-control" type="text" id="subject" name="subject"></div>
-                <div class="mb-3"><label class="form-label" for="email">Email</label><input class="form-control" type="email" id="email" name="email"></div>
-                <div class="mb-3"><label class="form-label" for="message">Message</label><textarea class="form-control" id="message" name="message"></textarea></div>
-                <div class="mb-3"><button class="btn btn-primary" type="submit">Send</button></div>
-            -->
-            </form>
-            <form action="order-confirmation.php" method="post" enctype="multipart/form-data">
-                <label>Select a document to upload:</label>
-                <input type="file" name="fileToUpload" id="fileToUpload">
-                <input type="submit" value="Upload document" name="submit">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" id="order-btn" name="create-order">Confirm</button>
+                </div>
             </form>
             <?php
             if (!empty($_FILES)) {
@@ -73,12 +101,12 @@ $_SESSION['array'] = NULL;
                     if (move_uploaded_file($file_tmp_name, $file_destination)) {
                         $req = $db_upload->prepare('INSERT INTO files (file_name, file_url) VALUES(?,?)');
                         $req->execute(array($file_name, $file_destination));
-                        echo 'File has been successfully uploaded';
+                        echo 'File successfully uploaded.';
                     } else {
-                        echo 'There was an error while sendind the file ';
+                        echo 'There was an error while sendind the file.';
                     }
                 } else {
-                    echo 'Only PDF format are authorised !';
+                    echo 'Only PDF formats are authorised!';
                 }
             }
             ?>

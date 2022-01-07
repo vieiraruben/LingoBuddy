@@ -5,7 +5,7 @@ $_SESSION["signup_msg"] = "";
 if (isset($_POST['signup'])) {
     $_SESSION["user"] = "";
     if ($_POST['password'] != $_POST['cPassword']) {
-        $_SESSION["signup_msg"] = '<p style="color:green;">Error: Your passwords did not match!</p>';
+        $_SESSION["signup_msg"] = '<p style="color:red;">Your passwords did not match!</p>';
         header("Location:signup.php");
         exit;
     } else {
@@ -41,20 +41,22 @@ if (isset($_POST['delete'])) {
             <div class="block-heading">
                 <h2 class="text-info">Log In</h2>
             </div>
-            <div class="wrapper">
-                <?php echo $_SESSION["signup_msg"]; ?>
+            <form class="row g-3" method="GET" action="account-view.php">
+                <?php echo '<span class="col-12" style="color:red;">' . $_SESSION["login_msg"] . '</span>'; ?>
+                <div class="col-md-6">
+                    <label class="form-label" for="email">Email</label>
+                    <input class="form-control" type="email" name="email" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="password">Password</label>
+                    <input class="form-control" type="password" name="password" required>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit" name="login" class="btn mt-3">Log In</button>
+                </div>
+                <div class="text-center col-12">New user? <a class="btn btn-secondary btn-sm small-btn" href="signup.php">Sign Up</a> </div>
 
-                <form class="p-3 mt-3" method="GET" action="account-view.php">
-                    <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>
-                        <input type="text" name="email" placeholder="Email" required>
-                    </div>
-                    <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span>
-                        <input type="password" name="password" placeholder="Password" required>
-                    </div>
-                    <button type="submit" name="login" class="btn mt-3">Login</button>
-                </form>
-                <div class="text-center fs-6"><a href="signup.php"> Sign up</a> </div>
-            </div>
+            </form>
         </div>
     </section>
 </main>

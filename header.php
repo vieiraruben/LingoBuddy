@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css"> -->
     <link rel="stylesheet" href="assets/bootstrap/css/vanilla-zoom.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/style.css">
 
@@ -28,9 +28,9 @@
                         <?php if (logged_in()) {
                             echo '<li class="nav-item"><a class="nav-link" href="account-view.php">Account</a></li>'
                                 . '<form id="logout" method="GET" action="index.php"> 
-                            <li class="nav-item"><button class="nav-link" type="submit" name="logout">Log Out</button></form></li>';
+                            <li class="nav-item"><button class="btn btn-primary" type="submit" name="logout">Log Out</button></form></li>';
                         } else {
-                            echo '<li class="nav-item"><a class="nav-link" href="login.php">Log In</a></li>';
+                            echo '<li class="nav-item"><a class="btn btn-primary" href="login.php">Log In</a></li>';
                         } ?>
                     </ul>
                 </div>
