@@ -9,7 +9,7 @@ header {
 
 .clean-block.clean-hero .text {
   color: black;
-  text-shadow: 0;
+  text-shadow: none;
 }
 .img-logo {
   margin-right: 1rem;
@@ -63,7 +63,7 @@ header {
 #add-order {
   border-top: 0;
   background-color: transparent;
-  max-width: auto;
+  width: auto;
   margin: auto;
   padding: 25px 0 20px 0;
   box-shadow: none;
