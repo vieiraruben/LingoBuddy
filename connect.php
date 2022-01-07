@@ -126,27 +126,6 @@ function price_calc($word): int
     return $word * 0.18;
 }
 
-function log_in($email, $password)
-{
-    // $_POST["email"];
-
-    $mysqli = new mysqli('localhost', 'root', 'root', 'lingobuddy');
-    $sql = 'SELECT `id`, `email`, `password` FROM `user` WHERE email = "' . $email . '" AND password = "' . $password . '";';
-    $result = $mysqli->query($sql);
-    $row = $result->fetch_assoc();
-    $mysqli->close();
-    return 'login function:' . var_dump($row[0]);
-    if ($row["email"] == $email && $row["password"] == $password) {
-        $_SESSION["user"] = $row["id"];
-        $user = $_SESSION["user"];
-        unset($_POST['login']);
-        header("Location:account-view.php");
-    } else {
-        header("Location:login.php");
-        exit;
-    }
-}
-
 function logged_in()
 {
     if ($_SESSION["user"] == "" || !isset($_SESSION["user"])) return false;
