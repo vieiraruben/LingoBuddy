@@ -1,25 +1,7 @@
 <?php
 $pageTitle = "New Order | LingoBuddy";
 include "header.php";
-$_SESSION['array'] = NULL;
 ?>
-<script>
-    function toggledelete() {
-        var toggle = document.getElementById("document-upload");
-        if (toggle.style.display == "none") {
-            toggle.style.display = "block";
-        } else {
-            toggle.style.display = "none";
-        }
-    }
-
-    function hide() {
-        var toggle = document.getElementById("document-upload");
-        if (!(toggle.style.display == "none")) {
-            toggle.style.display = "none";
-        }
-    }
-</script>
 <main class="page contact-us-page">
     <section class="clean-block clean-form dark">
         <div class="container">
@@ -33,21 +15,7 @@ $_SESSION['array'] = NULL;
                 <p>Fill out the form below to create your translation order.</p>
             </div>
             <form class="row g-3" action="order-recap.php" method="post" enctype="multipart/form-data">
-                <?php echo '<span class="col-12">' . $_SESSION["signup_msg"] . '</span>'; ?>
-                <div class="col-12"><label class="form-label" for="translation-type">Translation Type</label>
-
-
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="Document" name="translation_type" class="custom-control-input" required>
-                        <label onclick="toggledelete()" for="Document" class="custom-control-label" for="customRadioInline1">Document</label>
-                    </div>
-
-
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="In-Person" name="translation_type" class="custom-control-input" required>
-                        <label onclick="hide()" for="In-Person" class="custom-control-label">In-Person Translator</label>
-                    </div>
-                </div>
+                <?php echo '<span class="col-12" style="color:red;">' . $_SESSION["upload_msg"] . '</span>'; ?>
                 <div class="col-md-6"><label class="form-label" for="source_language">Source Language</label>
                     <select class="form-control" name="start_language" required>
                         <option disabled selected value> -- select language -- </option>
@@ -72,13 +40,13 @@ $_SESSION['array'] = NULL;
                         <option value="Italian">Italian</option>
                     </select>
                 </div>
-                <div id="document-upload" style="display:none;" ;>
+                <div id="document-upload">
                     <div class="col-12"><label class="form-label" for="word_count">Word Count</label>
-                        <input class="form-control" type="number" id="word_count" name="word_count" min="50">
+                        <input required class="form-control" type="number" id="word_count" name="word_count" min="50">
                     </div>
                     <div class="col-12">
                         <label id="file-label" class="form-label">File to be Translated</label>
-                        <input type="file" name="fileToUpload" id="fileToUpload">
+                        <input required type="file" name="fileToUpload" id="fileToUpload">
                     </div>
                 </div>
 
