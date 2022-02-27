@@ -1,14 +1,7 @@
 <?php
 session_start();
+error_reporting(0);
 $user = $_SESSION["user"];
-//example de utilisateur
-
-$dbhost = 'localhost';
-$dbuser = 'root';
-$dbpassword = 'root';
-$dbdatabase = 'lingobuddy';
-
-$mysqli = new mysqli($dbhost, $dbuser, $dbpassword, $dbdatabase);
 
 function find_order($user)
 {
@@ -142,7 +135,7 @@ function price_calc($word): int
 
 function logged_in()
 {
-    if ($_SESSION["user"] == "" || !isset($_SESSION["user"])) return false;
+    if (!isset($_SESSION["user"]) || $_SESSION["user"] == "") return false;
     else return true;
 }
 

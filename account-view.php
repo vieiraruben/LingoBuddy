@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 $pageTitle = "My Account | LingoBuddy";
 if (isset($_GET['login'])) {
     session_start();

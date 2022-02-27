@@ -42,7 +42,7 @@ if (isset($_POST['delete'])) {
                 <h2 class="text-info">Log In</h2>
             </div>
             <form class="row g-3" method="GET" action="account-view.php">
-                <?php echo '<span class="col-12" style="color:red;">' . $_SESSION["login_msg"] . '</span>'; ?>
+                <?php if (isset($_SESSION["login_msg"])) echo '<span class="col-12" style="color:red;">' . $_SESSION["login_msg"] . '</span>'; ?>
                 <div class="col-md-6">
                     <label class="form-label" for="email">Email</label>
                     <input class="form-control" id="email" type="email" name="email" required>

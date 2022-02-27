@@ -11,6 +11,7 @@ include "header.php";
             </div>
             <div class="row justify-content-center">
                 <?php
+                $mysqli = new mysqli('localhost', 'root', 'root', 'lingobuddy');
                 $sql = "SELECT * FROM `translator`;";
                 $result = $mysqli->query($sql);
                 // if ($result->num_rows > 0) {
