@@ -130,5 +130,5 @@ LinkedIn Profile - [https://www.linkedin.com/in/vieiraruben](https://www.linkedi
 [issues-shield]: https://img.shields.io/github/issues/vieiraruben/LingoBuddy.svg?style=for-the-badge
 [issues-url]: https://github.com/vieiraruben/LingoBuddy/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/rubenvieira
+[linkedin-url]: https://linkedin.com/in/vieiraruben
 [product-screenshot]: assets/img/language-translator.png
